@@ -1,0 +1,293 @@
+{
+  "baseurl": "https://eza.web.id",
+  "languageCode": "in",
+  "title": "eza.web.id",
+  "DefaultContentLanguage": "id",
+  "copyright": "rmdhnreza",
+  "enableGitInfo": true,
+  "enableRobotsTXT": true,
+  "canonifyURLs": true,
+  "enableEmoji": false,
+  "hasCJKLanguage": false,
+  "RemovePathAccents": true,
+  "pygmentsUseClasses": true,
+  "timeZone": "Asia/Jakarta",
+  "timeOut": "3600s",
+  "module": {
+    "imports": [
+      {
+        "path": "github.com/CaiJimmy/hugo-theme-stack/v3",
+        "disable": false
+      }
+    ]
+  },
+  "frontmatter": {
+    "date": ["date", "lastmod"],
+    "lastmod": ["lastmod", ":git", "date", "publishDate"]
+  },
+  "permalinks": {
+    "post": "/:title"
+  },
+  "pagination": {
+    "pagerSize": 10
+  },
+  "services": {
+    "googleAnalytics": {
+      "id": null
+    }
+  },
+  "params": {
+    "description": "Blog Tutorial For Linux, MacOS dan Windows",
+    "favicon": "/favicon.svg",
+    "mainSections": ["post"],
+    "featuredImageField": "image",
+    "rssFullContent": true,
+    "footer": {
+      "since": 2020
+    },
+    "dateFormat": {
+      "published": "Jan 02, 2006",
+      "lastUpdated": "Jan 02, 2006 15:04 UTC"
+    },
+    "sidebar": {
+      "compact": true,
+      "subtitle": "Personal Blog",
+      "avatar": {
+        "enabled": true,
+        "local": true,
+        "src": "img/avatar.svg"
+      }
+    },
+    "article": {
+      "math": false,
+      "toc": true,
+      "license": {
+        "enabled": true,
+        "default": "Creative Commons Attribution 4.0 International"
+      }
+    },
+    "comments": {
+      "enabled": true
+    },
+    "widgets": {
+      "homepage": [
+        {
+          "type": "search"
+        },
+        {
+          "type": "archives",
+          "params": {
+            "limit": 5
+          }
+        },
+        {
+          "type": "tag-cloud",
+          "params": {
+            "limit": 10
+          }
+        }
+      ],
+      "page": [
+        {
+          "type": "toc"
+        }
+      ]
+    },
+    "opengraph": {
+      "twitter": {
+        "card": "summary_large_image"
+      }
+    },
+    "defaultImage": {
+      "opengraph": {
+        "enabled": false,
+        "local": false
+      }
+    },
+    "colorScheme": {
+      "toggle": true,
+      "default": "auto"
+    },
+    "imageProcessing": {
+      "cover": {
+        "enabled": false
+      },
+      "content": {
+        "enabled": true
+      }
+    }
+  },
+  "imaging": {
+    "exif": {
+      "disableDate": true,
+      "disableLatLong": true,
+      "excludeFields": ".*",
+      "includeFields": ""
+    }
+  },
+  "menu": {
+    "main": [
+      {
+        "identifier": "home",
+        "name": "Home",
+        "url": "/",
+        "weight": -100,
+        "params": {
+          "icon": "home",
+          "newTab": false
+        }
+      },
+      {
+        "identifier": "archives",
+        "name": "Arsip",
+        "url": "https://eza.web.id/archives",
+        "weight": -80,
+        "params": {
+          "icon": "archives",
+          "newTab": false
+        }
+      },
+      {
+        "identifier": "source",
+        "name": "Source Code",
+        "url": "https://github.com/rmdhnreza/eza.web.id",
+        "weight": -70,
+        "params": {
+          "icon": "code",
+          "newTab": true
+        }
+      },
+      {
+        "identifier": "search",
+        "name": "Search",
+        "url": "https://eza.web.id/search",
+        "weight": -60,
+        "params": {
+          "icon": "search",
+          "newTab": false
+        }
+      }
+    ]
+  },
+  "related": {
+    "includeNewer": true,
+    "threshold": 60,
+    "toLower": false,
+    "indices": [
+      {
+        "name": "tags",
+        "weight": "100"
+      },
+      {
+        "name": "categories",
+        "weight": "200"
+      }
+    ]
+  },
+  "markup": {
+    "goldmark": {
+      "extensions": {
+        "passthrough": {
+          "enable": true,
+          "delimiters": {
+            "block": [
+              ["\\[", "\\]"],
+              ["$$", "$$"]
+            ],
+            "inline": [["\\(", "\\)"]]
+          }
+        }
+      },
+      "renderer": {
+        "unsafe": true
+      }
+    },
+    "tableOfContents": {
+      "endLevel": 4,
+      "ordered": true,
+      "startLevel": 3
+    },
+    "highlight": {
+      "noClasses": false,
+      "codeFences": true,
+      "guessSyntax": true,
+      "lineNoStart": 1,
+      "lineNos": true,
+      "lineNumbersInTable": true,
+      "tabWidth": 2
+    }
+  },
+  "build": {
+    "writeStats": true
+  },
+  "minify": {
+    "disableCSS": false,
+    "disableHTML": false,
+    "disableJS": false,
+    "disableJSON": false,
+    "disableSVG": false,
+    "disableXML": true,
+    "minifyOutput": true,
+    "tdewolff": {
+      "css": {
+        "inline": false,
+        "keepCSS2": true,
+        "precision": 0
+      },
+      "html": {
+        "keepComments": false,
+        "keepConditionalComments": false,
+        "keepDefaultAttrVals": true,
+        "keepDocumentTags": true,
+        "keepEndTags": true,
+        "keepQuotes": false,
+        "keepSpecialComments": false,
+        "keepWhitespace": false,
+        "templateDelims": ["", ""]
+      },
+      "js": {
+        "keepVarNames": false,
+        "precision": 0,
+        "version": 2022
+      },
+      "json": {
+        "keepNumbers": false,
+        "precision": 0
+      },
+      "svg": {
+        "inline": false,
+        "keepComments": false,
+        "precision": 0
+      },
+      "xml": {
+        "keepWhitespace": false
+      }
+    }
+  },
+  "caches": {
+    "assets": {
+      "dir": ":resourceDir/_gen",
+      "maxAge": -1
+    },
+    "getcsv": {
+      "dir": ":cacheDir/:project",
+      "maxAge": -1
+    },
+    "getjson": {
+      "dir": ":cacheDir/:project",
+      "maxAge": -1
+    },
+    "getresource": {
+      "dir": ":resourceDir/_gen",
+      "maxAge": -1
+    },
+    "images": {
+      "dir": ":resourceDir/_gen",
+      "maxAge": -1
+    },
+    "modules": {
+      "dir": ":cacheDir/modules",
+      "maxAge": -1
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<article>
+  <a href="{{ .RelPermalink }}">
+    <div class="article-details">
+      <h2 class="article-title" title="{{- .Title -}}" aria-label="{{- .Title -}}">
+        {{- .Title -}}
+      </h2>
+      {{ with .Params.summary }}
+        <h3 class="section-description" title="{{- . | truncate 75 -}}" aria-label="{{- . | truncate 75 -}}">{{- . | truncate 75 -}}</h3>
+      {{ end }}
+      <footer class="article-time">
+        <time class="time" datetime="{{ .PublishDate }}" title="{{ .PublishDate }}">{{ partial "helper/icon" "clock" }} {{ .Date | time.Format ":date_full" }}</time>
+        {{- if .Lastmod }}
+          <time class="time" datetime="{{ .Lastmod }}" title="{{ .Lastmod }}">{{ partial "helper/icon" "clock-edit" }} {{ .Lastmod | time.Format "Monday, 02 January 2006" }} </time>
+        {{- end }}
+      </footer>
+    </div>
+    {{- $image := partialCached "helper/image" (dict "Context" . "Type" "articleList") .RelPermalink "articleList" -}}
+    {{ if $image.exists }}
+      <div class="article-image">
+        {{ if $image.resource }}
+          {{- $Permalink := $image.resource.RelPermalink -}}
+          {{- $Width := $image.resource.Width -}}
+          {{- $Height := $image.resource.Height -}}
+          {{- if (default true .Page.Site.Params.imageProcessing.cover.enabled) -}}
+            {{- $thumbnail := $image.resource.Fill "80x80" -}}
+            {{- $Permalink = $thumbnail.RelPermalink -}}
+            {{- $Width = $thumbnail.Width -}}
+            {{- $Height = $thumbnail.Height -}}
+          {{- end -}}
+          <img loading="lazy" src="{{ $Permalink }}" width="{{ $Width }}" height="{{ $Height }}" alt="{{ .Title }}" >
+        {{ else }}
+          <img loading="lazy" src="{{ $image.permalink }}" alt="{{ .Title }}" />
+        {{ end }}
+      </div>
+    {{ end }}
+  </a>
+  {{ partial "article/components/tags" .  }}
+</article>

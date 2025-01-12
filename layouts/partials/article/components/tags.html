@@ -1,0 +1,7 @@
+{{ if .Params.Tags }}
+    <section class="article-tags">
+        {{ range (.GetTerms "tags") }}
+            <a href="{{ .RelPermalink }}" role="link" title="{{ .LinkTitle }}" aria-label="{{ .LinkTitle }}">{{ .LinkTitle }}</a>
+        {{ end }}
+    </section>
+{{ end }}

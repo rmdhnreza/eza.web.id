@@ -1,0 +1,55 @@
+{{- $Destination := .Destination -}}
+{{- if $Destination -}}
+  {{- $image := resources.GetRemote (printf "%s" ($Destination | safeURL)) -}}
+  {{- $Permalink := $Destination | relURL | safeURL -}}
+  {{- $alt := .PlainText | safeHTML -}}
+  {{- $Width := 0 -}}
+  {{- $Height := 0 -}}
+  {{- $Srcset := "" -}}
+
+  {{/* SVG and external images won't work with gallery layout, because their width and height attributes are unknown */}}
+  {{- $galleryImage := false -}}
+
+  {{- if $image -}}
+    {{- $notSVG := ne (path.Ext $Destination) ".svg" -}}
+    {{- $Permalink = $image.RelPermalink -}}
+
+    {{- if $notSVG -}}
+      {{- $Width = $image.Width -}}
+      {{- $Height = $image.Height -}}
+      {{- $galleryImage = true -}}
+
+      {{- if (default true .Page.Site.Params.imageProcessing.content.enabled) -}}
+        {{- $large := $image.Resize `1024x webp text MitchellNetravali q100` -}}
+        {{- if $large -}}
+          {{- $medium := $image.Resize `720x webp text MitchellNetravali q100` -}}
+          {{- $small := $image.Resize `480x webp text MitchellNetravali q100` -}}
+          {{- $tiny := $image.Resize `360x webp text MitchellNetravali q100` -}}
+          {{- $Srcset = printf `%s 360w, %s 480w, %s 720w, %s 1024w` $tiny.RelPermalink $small.RelPermalink $medium.RelPermalink $large.RelPermalink -}}
+        {{- else -}}
+          {{- $Srcset = $Permalink -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  <img src="{{ $Permalink }}"
+    {{ with $Width }}width="{{ . }}"{{ end }}
+    {{ with $Height }}height="{{ . }}"{{ end }}
+    {{ with $Srcset }}srcset="{{ . }}"{{ end }}
+    loading="lazy"
+    {{ with $alt }}
+      alt="{{ . }}"
+    {{ end }}
+    {{ if $galleryImage }}
+      class="gallery-image"
+      data-flex-grow="{{ div (mul $image.Width 100) $image.Height }}"
+      data-flex-basis="{{ div (mul $image.Width 240) $image.Height }}px"
+    {{ end }}
+    itemprop="image"
+    itemscope
+    itemtype="https://schema.org/ImageObject"
+  >
+{{- else -}}
+  <p>Error: Destination URL is empty or invalid.</p>
+{{- end -}}

@@ -1,0 +1,227 @@
+$defaultTagBackgrounds: #8ea885, #df7988, #0177b8, #ffb900, #6b69d6;
+$defaultTagColors: #fff, #fff, #fff, #fff, #fff;
+
+/*
+*   Global style
+*/
+
+@font-face {
+  font-family: "Fira Sans";
+  src: url("/fonts/firasans.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Iosevka";
+  src: url("/fonts/iosevka.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --main-top-padding: 35px;
+
+  @include respond(xl) {
+    --main-top-padding: 50px;
+  }
+
+  --accent-color-darker: rgba(30, 42, 56, 1);
+  --accent-color-text: rgba(255, 255, 255, 1);
+  --accent-color: rgba(43, 62, 80, 1);
+  --body-background: rgba(255, 255, 255, 1);
+  --body-text-color: rgba(74, 74, 74, 1);
+  --border-color: rgba(224, 224, 224, 1);
+  --card-background-color: rgba(250, 250, 250, 1);
+  --card-background-text-color: rgba(51, 51, 51, 1);
+  --card-text-color-tertiary: rgba(110, 110, 110, 1);
+  --categories-border-color: rgba(209, 213, 219, 1);
+  --categories-color: var(--card-background-color);
+  --categories-color-hover: rgba(224, 224, 224, 0.7);
+  --categories-text-color: var(--card-background-text-color);
+  --heading-background-color: rgba(231, 240, 252, 1);
+  --heading-text-color: rgba(26, 26, 26, 1);
+  --line-color: rgba(229, 231, 235, 1);
+  --link-color: rgba(0, 86, 210, 1);
+  --note-background-color: rgba(238, 246, 255, 1);
+  --note-text-color: rgba(0, 39, 77, 1);
+  --pre-background-color: rgba(248, 248, 248, 1);
+  --scrollbar-thumb: rgba(179, 179, 179, 1);
+  --scrollbar-track: var(--body-background);
+  --section-separation: 20px;
+  --spoiler-background-color: rgba(128, 128, 128, 0.05);
+  --spoiler-border-color: var(--border-color);
+  --tag-border-radius: 4px;
+  --toc-color: var(--spoiler-background-color);
+}
+
+[data-scheme="dark"] {
+  --accent-color-darker: rgba(189, 195, 199, 1);
+  --accent-color-text: rgba(0, 0, 0, 1);
+  --accent-color: rgba(236, 240, 241, 1);
+  --body-background: rgb(30, 30, 46);
+  --body-text-color: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(110, 110, 110, 1);
+  --card-background-color: rgba(81, 87, 109, 1);
+  --card-background-text-color: rgba(198, 208, 245, 1);
+  --card-background: rgb(49, 50, 68);
+  --card-text-color-tertiary: rgba(255, 255, 255, 0.85);
+  --categories-border-color: var(--border-color);
+  --categories-color: var(--card-background);
+  --categories-color-hover: rgb(88, 91, 112);
+  --categories-text-color: var(--card-background-text-color);
+  --heading-background-color: rgba(205, 214, 244, 1);
+  --heading-text-color: rgba(255, 255, 255, 1);
+  --line-color: rgba(255, 255, 255, 1);
+  --link-color: rgb(137, 180, 250);
+  --note-background-color: rgb(180, 190, 254);
+  --note-text-color: rgb(30, 30, 46);
+  --pre-background-color: rgba(30, 30, 46, 1);
+  --scrollbar-thumb: var(--categories-border-color);
+  --scrollbar-track: var(--body-background);
+  --spoiler-border-color: rgba(205, 214, 244, 0.2);
+  --toc-color: rgb(69, 71, 90);
+}
+
+/**
+*   Global font family
+*/
+:root {
+  --sys-font-family: "Fira Sans", sans-serif;
+  --zh-font-family: "PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback",
+    "Microsoft YaHei";
+
+  --base-font-family: var(--sys-font-family), var(--zh-font-family), sans-serif;
+  --code-font-family: "Iosevka", monospace;
+}
+
+/*
+*   Card style
+*/
+:root {
+  --card-background-selected: #eaeaea;
+
+  --card-text-color-main: #000;
+  --card-text-color-secondary: #747474;
+  --card-text-color-tertiary: #767676;
+  --card-separator-color: rgba(218, 218, 218, 0.5);
+
+  --card-border-radius: 10px;
+
+  --card-padding: 20px;
+
+  @include respond(md) {
+    --card-padding: 25px;
+  }
+
+  @include respond(xl) {
+    --card-padding: 30px;
+  }
+
+  --small-card-padding: 25px 20px;
+
+  @include respond(md) {
+    --small-card-padding: 25px;
+  }
+
+  &[data-scheme="dark"] {
+    --card-background-selected: rgba(255, 255, 255, 0.16);
+    --card-text-color-main: rgba(255, 255, 255, 0.9);
+    --card-text-color-secondary: rgba(255, 255, 255, 0.7);
+    --card-text-color-tertiary: rgb(205, 214, 244);
+    --card-separator-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+/**
+*   Article content font settings
+*/
+:root {
+  --article-font-family: var(--base-font-family);
+  --article-font-size: 1.6rem;
+
+  @include respond(md) {
+    --article-font-size: 1.7rem;
+  }
+
+  --article-line-height: 1.85;
+}
+
+/*
+*   Article content style
+*/
+:root {
+  --blockquote-border-size: 4px;
+  --blockquote-background-color: rgb(248 248 248);
+
+  --heading-border-size: 4px;
+
+  --link-background-color: 189, 195, 199;
+  --link-background-opacity: 0.5;
+  --link-background-opacity-hover: 0.7;
+
+  --pre-background-color: #272822;
+  --pre-text-color: #f8f8f2;
+
+  --code-background-color: rgba(0, 0, 0, 0.12);
+  --code-text-color: #808080;
+
+  --table-border-color: #dadada;
+  --tr-even-background-color: #efefee;
+
+  --kbd-border-color: #dadada;
+
+  &[data-scheme="dark"] {
+    --code-background-color: rgb(69, 71, 90);
+    --code-text-color: rgba(255, 255, 255, 0.9);
+
+    --link-background-color: 189, 195, 199;
+    --link-background-opacity: 0.5;
+    --link-background-opacity-hover: 0.3;
+
+    --table-border-color: #717171;
+    --tr-even-background-color: #545454;
+
+    --blockquote-background-color: rgb(75 75 75);
+  }
+}
+
+/*
+*   Shadow style
+*   Thanks to https://www.figma.com/community/plugin/744987207861965946/Shadow-picker
+*/
+:root {
+  --shadow-l1: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06),
+    0px 0px 1px rgba(0, 0, 0, 0.04);
+  --shadow-l2: 0px 10px 20px rgba(0, 0, 0, 0.04),
+    0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  --shadow-l3: 0px 10px 20px rgba(0, 0, 0, 0.04),
+    0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+  --shadow-l4: 0px 24px 32px rgba(0, 0, 0, 0.04),
+    0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04),
+    0px 0px 1px rgba(0, 0, 0, 0.04);
+}
+
+[data-scheme="light"] {
+  --pre-text-color: #272822;
+  --pre-background-color: #fafafa;
+  @import "partials/highlight/light.scss";
+}
+
+[data-scheme="dark"] {
+  --pre-text-color: #f8f8f2;
+  --pre-background-color: #272822;
+  @import "partials/highlight/dark.scss";
+}
+
+:root {
+  --menu-icon-separation: 40px;
+  --container-padding: 15px;
+  --widget-separation: var(--section-separation);
+  --details-padding: 1em;
+  --thumbnail-size: 80px;
+  --gaps-padding: 15px;
+  --note-margin: 22px calc((var(--card-padding)) * -1);
+}

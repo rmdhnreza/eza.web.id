@@ -1,0 +1,83 @@
+<style>
+  .dsqs {
+    background-color: var(--categories-color);
+    border: 1px solid var(--categories-border-color);
+    border-radius: var(--tag-border-radius);
+    color: var(--categories-text-color);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.4rem;
+    left: 50%;
+    padding: 8px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transform: translate(-50%, 0%);
+    &:hover {
+      box-shadow: var(--shadow-l2);
+      color: var(--categories-text-color);
+    }
+  }
+
+  .disqus-container {
+    border: 1px solid var(--border-color);
+    background-color: var(--card-background);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-l1);
+    padding: var(--card-padding);
+  }
+</style>
+<div class="disqus-container">
+  <div id="disqus_thread">
+    <a
+      href="#"
+      class="comments-holder dsqs"
+      onclick="loadDisqus(event); loadCount();"
+    >
+      Click to View Comments
+    </a>
+  </div>
+</div>
+<script>
+var disqus_shortname = "rmdhnreza";
+var disqus_config = function() {
+    this.page.url = '{{ trim .Permalink "/" }}';
+    this.page.title = "{{ .Title }}";
+    this.page.identifier = "{{ .File.UniqueID }}";
+};
+var is_disqus_loaded = false;
+
+function loadDisqus(event) {
+    event.preventDefault();
+    if (!is_disqus_loaded) {
+        is_disqus_loaded = true;
+        var d = document,
+            s = d.createElement("script");
+        s.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+        s.setAttribute("data-timestamp", +new Date());
+        (d.head || d.body).appendChild(s);
+    }
+}
+
+var is_count_loaded = false;
+
+function loadCount() {
+    if (!is_count_loaded) {
+        is_count_loaded = true;
+        var d = document,
+            o = d.createElement("script");
+        o.id = "dsq-count-scr";
+        o.src = "//" + disqus_shortname + ".disqus.com/count.js";
+        o.setAttribute("data-timestamp", +new Date());
+        (d.head || d.body).appendChild(o);
+    }
+}
+
+window.addEventListener("onColorSchemeChange", (e) => {
+    if (is_disqus_loaded) {
+        DISQUS.reset({
+            reload: true,
+        });
+    }
+});
+</script>

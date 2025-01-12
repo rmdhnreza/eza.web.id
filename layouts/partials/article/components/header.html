@@ -1,0 +1,15 @@
+{{ define "tableOfContent" }}
+  {{ if (.Scratch.Get "hasTOC") }}
+    <div class="tableOfContent">
+      <h3 class="titleTableOfContent">{{ T "article.tableOfContents" }}</h3>
+      <div class="tableOfContentList">
+        {{ .TableOfContents }}
+      </div>
+    </div>
+  {{ end }}
+{{ end }}
+
+<header class="article-header">
+  {{ partialCached "article/components/details" . .RelPermalink }}
+  {{- block "tableOfContent" . -}}{{ end }}
+</header>

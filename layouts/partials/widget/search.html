@@ -1,0 +1,16 @@
+{{- $query := first 1 (where .Context.Site.Pages "Layout" "==" "search") -}}
+{{- if $query -}}
+    {{- $searchPage := index $query 0 -}}
+    <form role="search" action="{{ $searchPage.RelPermalink }}" class="search-form widget" {{ with .OutputFormats.Get "json" -}}data-json="{{ .Permalink }}" {{- end }}>
+        <p>
+            <label title="{{ T "search.title" }}" aria-label="{{ T "search.title" }}">{{ T "search.title" }}</label>
+            <input accesskey="s" type="search" title="{{ T `search.placeholder` }}" aria-label="{{ T `search.placeholder` }}" name="keyword" required placeholder="{{ T `search.placeholder` }}" />
+        
+            <button role="button" type="submit" title="{{ T `search.title` }}">
+                {{ partial "helper/icon" "search" }}
+            </button>
+        </p>
+    </form>
+{{- else -}}
+    {{- warnf "Search page not found. Create a page with layout: search." -}}
+{{- end -}}

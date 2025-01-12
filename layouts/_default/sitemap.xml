@@ -1,0 +1,34 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\" ?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  {{ range .Data.Pages }}
+  {{ if not
+    (or (hasPrefix .RelPermalink "/archives")
+    (hasPrefix .RelPermalink "/categories")
+    (hasPrefix .RelPermalink "/fonts")
+    (hasPrefix .RelPermalink "/js")
+    (hasPrefix .RelPermalink "/post")
+    (hasPrefix .RelPermalink "/scss")
+    (hasPrefix .RelPermalink "/search")
+    (hasPrefix .RelPermalink "/static")
+    (hasPrefix .RelPermalink "/tags")
+    (hasPrefix .RelPermalink "/ts"))
+  }}
+  {{ $image := partialCached "helper/image" (dict "Context" . "Type" "articleList") .RelPermalink }}
+  <url>
+    <loc>{{ .Permalink }}</loc>
+        {{ if not .Lastmod.IsZero }}
+            <lastmod>{{ safeHTML ( .Lastmod.Format "2006-01-02T15:04:05+07:00" ) }}</lastmod>
+        {{ end }}
+        {{- if $image.exists -}}
+            <image:image><image:loc>{{ .Params.ThumbSchema | absURL }}</image:loc></image:image>
+        {{- end -}}
+        <!-- {{ with .Sitemap.ChangeFreq }}
+            <changefreq>{{ . }}</changefreq>
+        {{ end }}
+        {{ if ge .Sitemap.Priority 0.0 }}
+            <priority>{{ .Sitemap.Priority }}</priority>
+        {{ end }} -->
+  </url>
+  {{ end }}
+  {{ end }}
+</urlset>

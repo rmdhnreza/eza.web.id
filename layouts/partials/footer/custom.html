@@ -1,0 +1,20 @@
+<script>
+  // Service Workers
+  if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js', { scope: '/' }).then(
+        () => {
+          console.info('eza.web.id Service Worker Registered');
+        },
+        (err) =>
+          console.error('eza.web.id Service Worker registration failed: ', err),
+      );
+
+      navigator.serviceWorker.ready.then(() => {
+        console.info('eza.web.id Service Worker Ready');
+      });
+    }
+  } else {
+    console.warn('Service worker disabled on localhost.');
+  }
+</script>

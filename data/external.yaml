@@ -1,0 +1,22 @@
+Vibrant:
+  - src: https://eza.web.id/js/noop.js
+    integrity: sha384-tbTYnZxlfJyLRxLDx+Pdi8w7vl1aYZebHgUm4SEZNY28bmVzRhX0yq2rXMx+WbSK
+    type: script
+    defer: true
+
+PhotoSwipe:
+  - src: https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js
+    integrity: sha384-jkeJ/ETDRD/P4Y3I3CQi1QIwrEJjR9GdAZV2/aqDwwgA5ldCNiExYJeBwKyQC/+q
+    type: script
+    defer: true
+
+  - src: https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js
+    integrity: sha384-HotcxRWS6/oszHPwknjGnd066fV8+ycnO5TXDcOscFWvTtaiCtEEv+9s5Qrn1iJD
+    type: script
+    defer: true
+
+  - src: https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css
+    type: style
+
+  - src: https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css
+    type: style

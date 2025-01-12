@@ -1,0 +1,30 @@
+{{- $query := first 1 (where .Context.Site.Pages "Layout" "==" "archives") -}}
+{{- $context := .Context -}}
+{{- $limit := default 5 .Params.limit -}}
+{{- if $query -}}
+  {{- $archivesPage := index $query 0 -}}
+  <section class="widget archives">
+    <h2 class="widget-title section-title" title="{{ T "widget.archives.title" }}" aria-label="{{ T "widget.archives.title" }}" aria-describedby="archives-year">{{ partial "helper/icon" "archives" }} {{ T "widget.archives.title" }}</h2>
+    {{ $pages := where $context.Site.RegularPages "Type" "in" $context.Site.Params.mainSections }}
+    {{ $notHidden := where $context.Site.RegularPages "Params.hidden" "!=" true }}
+    {{ $filtered := ($pages | intersect $notHidden) }}
+    {{ $archives := $filtered.GroupByDate "2006" }}
+    <div role="list" class="widget-archive--list">
+      {{ range $index, $item := first (add $limit 1) ($archives) }}
+        {{- $id := lower (replace $item.Key " " "-") -}}
+        <div role="listitem" class="archives-year">
+          <a title="{{ $id }}" aria-label="{{ $id }}" href="{{ $archivesPage.RelPermalink }}#{{ $id }}">
+            {{ if eq $index $limit }}
+              <span title="{{ T "widget.archives.more" }}" aria-label="{{ T "widget.archives.more" }}" class="year">{{ T "widget.archives.more" }}</span>
+            {{ else }}
+              <span title="{{ .Key }}" aria-label="{{ .Key }}" class="year">{{ .Key }}</span>
+              <span title="{{ len $item.Pages }}" aria-label="{{ len $item.Pages }}" class="count">{{ len $item.Pages }}</span>
+            {{ end }}
+          </a>
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{- else -}}
+  {{- warnf "Archives page not found. Create a page with layout: archives." -}}
+{{- end -}}
