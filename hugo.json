@@ -1,7 +1,7 @@
 {
   "baseurl": "https://eza.web.id",
   "languageCode": "in",
-  "title": "eza.web.id",
+  "title": "Eza.web.id",
   "DefaultContentLanguage": "id",
   "copyright": "rmdhnreza",
   "enableGitInfo": true,
@@ -37,7 +37,7 @@
     }
   },
   "params": {
-    "description": "Blog Tutorial For Linux, MacOS dan Windows",
+    "description": "Blog pribadi untuk berbagi pengalaman dan panduan seputar Linux, MacOS, dan Windows",
     "favicon": "/favicon.svg",
     "mainSections": ["post"],
     "featuredImageField": "image",
