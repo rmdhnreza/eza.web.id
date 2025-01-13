@@ -4,17 +4,17 @@
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" role="listitem">
       <a itemprop="item" href="/" tabindex="0">
         <span itemprop="name" title="Home" aria-label="Home" tabindex="-1">Home</span>
-        <meta itemprop="position" content="{{ $.Scratch.Get " position" }}" />
+        <meta itemprop="position" content="{{ $.Scratch.Get "position" }}" />
       </a>
     </li>
     {{- with .Params.categories -}}
     {{- range . -}}
     {{ $.Scratch.Add "position" 1 }}
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" role="listitem">
-      <a itemprop="item" href="{{ " /categories/" | relLangURL }}{{ . | urlize }}" tabindex="0">
+      <a itemprop="item" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" tabindex="0">
         <span itemprop="name" title="{{ . }}" aria-label="{{ . }}" tabindex="-1">{{ . }}</span>
       </a>
-      <meta itemprop="position" content="{{ $.Scratch.Get " position" }}" />
+      <meta itemprop="position" content="{{ $.Scratch.Get "position" }}" />
     </li>
     {{- end -}}
     {{- end -}}
@@ -22,7 +22,7 @@
       {{ $.Scratch.Add "position" 1 }}
       <span itemprop="name" style="display: none" class="bold__text" title="{{ .Params.title }}"
         aria-label="{{ .Params.title }}" aria-current="page" tabindex="-1">{{ .Params.title }}</span>
-      <meta itemprop="position" content="{{ $.Scratch.Get " position" }}" />
+      <meta itemprop="position" content="{{ $.Scratch.Get "position" }}" />
     </li>
   </ol>
 </nav>
