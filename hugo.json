@@ -37,7 +37,7 @@
     }
   },
   "params": {
-    "description": "Blog pribadi untuk berbagi pengalaman dan panduan seputar Linux, MacOS, dan Windows",
+    "description": "Blog untuk berbagi pengalaman dan panduan seputar Linux, MacOS, dan Windows",
     "favicon": "/favicon.svg",
     "mainSections": ["post"],
     "featuredImageField": "image",
