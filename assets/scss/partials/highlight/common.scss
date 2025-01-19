@@ -1,0 +1,155 @@
+/* Background */
+.chroma {
+  color: $color;
+  background-color: $background-color;
+}
+
+/* Error */
+.chroma .err {
+  color: $error-color;
+}
+
+/* LineTableTD */
+.chroma .lntd {
+  vertical-align: top;
+  padding: 0;
+  margin-right: 15px;
+  border: 0;
+}
+
+/* LineTable */
+.chroma .lntable {
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  display: block;
+}
+
+.chroma .lntable > tbody > tr {
+  display: flex;
+  width: 100%;
+}
+
+.chroma .lntable > tbody > tr > td:last-child {
+  overflow-x: auto;
+}
+
+/* LineHighlight */
+.chroma .hl {
+  display: block;
+  width: 100%;
+  background-color: $name-color;
+}
+
+/* LineNumbers */
+.chroma .ln {
+  margin-right: 0.4em;
+  padding: 0 0.4em;
+  color: $name-color;
+  display: block;
+  user-select: none;
+}
+
+/* Keywords */
+.chroma .k,
+.chroma .kc,
+.chroma .kd,
+.chroma .kp,
+.chroma .kr,
+.chroma .kt {
+  color: $keyword-color;
+}
+
+.chroma .kn,
+.chroma .nt {
+  color: $error-color;
+}
+
+/* Names */
+.chroma .n,
+.chroma .nb,
+.chroma .bp,
+.chroma .ni,
+.chroma .nl,
+.chroma .nn,
+.chroma .nv,
+.chroma .vc,
+.chroma .vg,
+.chroma .vi,
+.chroma .vm,
+.chroma .py,
+.chroma .fm {
+  color: $text-color;
+}
+
+.chroma .na,
+.chroma .nc,
+.chroma .nd,
+.chroma .ne,
+.chroma .nx,
+.chroma .gi {
+  color: $name-color;
+}
+
+.chroma .no {
+  color: $keyword-color;
+}
+
+/* Literals */
+.chroma .l,
+.chroma .m,
+.chroma .ld,
+.chroma .s,
+.chroma .sa,
+.chroma .sb,
+.chroma .sc,
+.chroma .dl,
+.chroma .sd,
+.chroma .s2,
+.chroma .se,
+.chroma .sh,
+.chroma .si,
+.chroma .sx,
+.chroma .sr,
+.chroma .s1,
+.chroma .ss,
+.chroma .mb,
+.chroma .mf,
+.chroma .mh,
+.chroma .mi,
+.chroma .il,
+.chroma .mo {
+  color: $literal-color;
+}
+
+/* Operators */
+.chroma .o,
+.chroma .ow {
+  color: $error-color;
+}
+
+/* Comments */
+.chroma .c,
+.chroma .ch,
+.chroma .cm,
+.chroma .c1,
+.chroma .cs,
+.chroma .cp,
+.chroma .cpf {
+  color: $literal-color;
+}
+
+/* Generics */
+.chroma .ge {
+  font-style: italic;
+}
+
+.chroma .gs {
+  font-weight: bold;
+}
+
+.chroma .gu {
+  color: $literal-color;
+}

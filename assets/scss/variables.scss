@@ -28,61 +28,31 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     --main-top-padding: 50px;
   }
 
-  --accent-color-darker: rgba(30, 42, 56, 1);
-  --accent-color-text: rgba(255, 255, 255, 1);
-  --accent-color: rgba(43, 62, 80, 1);
-  --body-background: rgba(255, 255, 255, 1);
-  --body-text-color: rgba(74, 74, 74, 1);
-  --border-color: rgba(224, 224, 224, 1);
-  --card-background-color: rgba(250, 250, 250, 1);
-  --card-background-text-color: rgba(51, 51, 51, 1);
-  --card-text-color-tertiary: rgba(110, 110, 110, 1);
-  --categories-border-color: rgba(209, 213, 219, 1);
-  --categories-color: var(--card-background-color);
-  --categories-color-hover: rgba(224, 224, 224, 0.7);
-  --categories-text-color: var(--card-background-text-color);
-  --heading-background-color: rgba(231, 240, 252, 1);
-  --heading-text-color: rgba(26, 26, 26, 1);
-  --line-color: rgba(229, 231, 235, 1);
-  --link-color: rgba(0, 86, 210, 1);
-  --note-background-color: rgba(238, 246, 255, 1);
-  --note-text-color: rgba(0, 39, 77, 1);
-  --pre-background-color: rgba(248, 248, 248, 1);
-  --scrollbar-thumb: rgba(179, 179, 179, 1);
-  --scrollbar-track: var(--body-background);
-  --section-separation: 20px;
-  --spoiler-background-color: rgba(128, 128, 128, 0.05);
-  --spoiler-border-color: var(--border-color);
-  --tag-border-radius: 4px;
-  --toc-color: var(--spoiler-background-color);
-}
+  --body-background: #f5f5fa;
 
-[data-scheme="dark"] {
-  --accent-color-darker: rgba(189, 195, 199, 1);
-  --accent-color-text: rgba(0, 0, 0, 1);
-  --accent-color: rgba(236, 240, 241, 1);
-  --body-background: rgb(30, 30, 46);
-  --body-text-color: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(110, 110, 110, 1);
-  --card-background-color: rgba(81, 87, 109, 1);
-  --card-background-text-color: rgba(198, 208, 245, 1);
-  --card-background: rgb(49, 50, 68);
-  --card-text-color-tertiary: rgba(255, 255, 255, 0.85);
-  --categories-border-color: var(--border-color);
-  --categories-color: var(--card-background);
-  --categories-color-hover: rgb(88, 91, 112);
-  --categories-text-color: var(--card-background-text-color);
-  --heading-background-color: rgba(205, 214, 244, 1);
-  --heading-text-color: rgba(255, 255, 255, 1);
-  --line-color: rgba(255, 255, 255, 1);
-  --link-color: rgb(137, 180, 250);
-  --note-background-color: rgb(180, 190, 254);
-  --note-text-color: rgb(30, 30, 46);
-  --pre-background-color: rgba(30, 30, 46, 1);
-  --scrollbar-thumb: var(--categories-border-color);
+  --accent-color: #34495e;
+  --accent-color-darker: #2c3e50;
+  --accent-color-text: #fff;
+  --body-text-color: #707070;
+  --border-color: rgba(224, 224, 224, 1);
+
+  --tag-border-radius: 4px;
+
+  --section-separation: 40px;
+
+  --scrollbar-thumb: hsl(0, 0%, 85%);
   --scrollbar-track: var(--body-background);
-  --spoiler-border-color: rgba(205, 214, 244, 0.2);
-  --toc-color: rgb(69, 71, 90);
+
+  &[data-scheme="dark"] {
+    --body-background: #303030;
+    --border-color: rgba(110, 110, 110, 1);
+    --accent-color: #ecf0f1;
+    --accent-color-darker: #bdc3c7;
+    --accent-color-text: #000;
+    --body-text-color: rgba(255, 255, 255, 0.7);
+    --scrollbar-thumb: hsl(0, 0%, 40%);
+    --scrollbar-track: var(--body-background);
+  }
 }
 
 /**
@@ -101,11 +71,12 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 *   Card style
 */
 :root {
+  --card-background: #fff;
   --card-background-selected: #eaeaea;
 
   --card-text-color-main: #000;
   --card-text-color-secondary: #747474;
-  --card-text-color-tertiary: #767676;
+  --card-text-color-tertiary: var(--pre-text-color);
   --card-separator-color: rgba(218, 218, 218, 0.5);
 
   --card-border-radius: 10px;
@@ -127,10 +98,11 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
   }
 
   &[data-scheme="dark"] {
+    --card-background: #424242;
     --card-background-selected: rgba(255, 255, 255, 0.16);
     --card-text-color-main: rgba(255, 255, 255, 0.9);
     --card-text-color-secondary: rgba(255, 255, 255, 0.7);
-    --card-text-color-tertiary: rgb(205, 214, 244);
+    --card-text-color-tertiary: var(--pre-text-color);
     --card-separator-color: rgba(255, 255, 255, 0.12);
   }
 }
@@ -165,6 +137,8 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
   --pre-background-color: #272822;
   --pre-text-color: #f8f8f2;
 
+  --highlight-color: #eff1f5;
+
   --code-background-color: rgba(0, 0, 0, 0.12);
   --code-text-color: #808080;
 
@@ -174,12 +148,10 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
   --kbd-border-color: #dadada;
 
   &[data-scheme="dark"] {
-    --code-background-color: rgb(69, 71, 90);
-    --code-text-color: rgba(255, 255, 255, 0.9);
+    --highlight-color: #303446;
 
-    --link-background-color: 189, 195, 199;
-    --link-background-opacity: 0.5;
-    --link-background-opacity-hover: 0.3;
+    --code-background-color: #272822;
+    --code-text-color: rgba(255, 255, 255, 0.9);
 
     --table-border-color: #717171;
     --tr-even-background-color: #545454;
@@ -220,8 +192,4 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
   --menu-icon-separation: 40px;
   --container-padding: 15px;
   --widget-separation: var(--section-separation);
-  --details-padding: 1em;
-  --thumbnail-size: 80px;
-  --gaps-padding: 15px;
-  --note-margin: 22px calc((var(--card-padding)) * -1);
 }

@@ -2,7 +2,7 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 
 {{- $description := partialCached "data/description" . .RelPermalink -}}
-<meta name='description' {{ printf "content=%q" $description | safeHTMLAttr }}>
+<meta name="description" content="Blog seputar Linux, MacOS, Windows, serta tutorial, tips, dan trik untuk meningkatkan pengalaman pengguna di berbagai platform.">
 {{ with .Params.Keywords }}<meta name="keywords" content="{{ delimit . ", " }}">{{ end }}
 
 {{- $title := partial "data/title" . -}}
@@ -15,8 +15,8 @@
 </title>
 
 <link rel='canonical' href='{{ .Permalink }}'>
-<link rel="preload" href="/fonts/firasans.woff2" as="font" type="font/woff2">
-<link rel="preload" href="/fonts/iosevka.woff2" as="font" type="font/woff2">
+<link rel="preload" href="/fonts/firasans.woff2" as="font" type="font/woff2 crossorigin">
+<link rel="preload" href="/fonts/iosevka.woff2" as="font" type="font/woff2 crossorigin">
 
 {{- partial "head/style.html" . -}}
 {{- partial "head/script.html" . -}}

@@ -208,7 +208,7 @@
       "startLevel": 3
     },
     "highlight": {
-      "noClasses": false,
+      "noClasses": true,
       "codeFences": true,
       "guessSyntax": true,
       "lineNoStart": 1,
@@ -219,6 +219,17 @@
   },
   "build": {
     "writeStats": true
+  },
+  "outputFormats": {
+    "CSS": {
+      "mediaType": "text/css",
+      "isHTML": false
+    }
+  },
+  "mediaTypes": {
+    "text/css": {
+      "suffixes": ["css"]
+    }
   },
   "minify": {
     "disableCSS": false,
