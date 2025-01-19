@@ -11,4 +11,5 @@ Disallow: /search/index.jso
 Disallow: /static
 Disallow: /tags
 Disallow: /ts
+Disallow: /index.xml
 Sitemap: {{ .Sitemap.Filename | default "sitemap.xml" | absURL }}
