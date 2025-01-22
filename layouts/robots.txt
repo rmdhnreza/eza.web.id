@@ -7,7 +7,7 @@ Disallow: /js
 Disallow: /page
 Disallow: /scss
 Disallow: /search
-Disallow: /search/index.jso
+Disallow: /search/index.json
 Disallow: /static
 Disallow: /tags
 Disallow: /ts
