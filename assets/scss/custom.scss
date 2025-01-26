@@ -30,6 +30,16 @@
   @return $string;
 }
 
+ol.breadcrumb {
+  list-style: none;
+}
+
+.search-form.widget input,
+.widget-archive--list {
+  border: 1px solid var(--border-color);
+  border-radius: var(--card-border-radius);
+}
+
 .tableOfContent {
   background-color: var(--toc-color);
   color: var(--heading-text-color);
@@ -60,8 +70,8 @@
   }
 }
 
-ol.breadcrumb {
-  list-style: none;
+.pswp__caption__center {
+  text-align: center !important;
 }
 
 nav#TableOfContents ol {
@@ -84,12 +94,6 @@ nav#TableOfContents ol {
     content: "";
     counter-increment: sub-item;
   }
-}
-
-.search-form.widget input,
-.widget-archive--list {
-  border: 1px solid var(--border-color);
-  border-radius: var(--card-border-radius);
 }
 
 summary {
