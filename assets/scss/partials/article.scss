@@ -144,6 +144,7 @@
 
 /* Compact style article list */
 .article-list--compact {
+  background-color: var(--card-background);
   border: 1px solid var(--border-color);
   border-radius: var(--card-border-radius);
   & article {
