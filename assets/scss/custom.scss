@@ -41,8 +41,9 @@ ol.breadcrumb {
 }
 
 .tableOfContent {
-  background-color: var(--toc-color);
+  background-color: var(--blockquote-background-color);
   color: var(--heading-text-color);
+  margin: var(--card-padding) 0;
   padding: 15px 0 0 var(--card-padding);
 
   & .tableOfContentList {
