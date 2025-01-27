@@ -98,8 +98,11 @@
 
   time,
   a {
-    font-size: 1.4rem;
+    align-items: center;
     color: var(--pre-text-color);
+    display: flex;
+    font-size: 1.4rem;
+    gap: 5px;
   }
 
   & > div {
