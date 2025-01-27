@@ -113,4 +113,4 @@ hugo.json # Config menggunakan template `JSON`
 
 ## Lisensi
 
-Repository ini menggunakan lisensi sesuai ketentuan pemilik tema [Stack](https://github.com/CaiJimmy/hugo-theme-stack) yaitu [GNU General Public License v3.0](https://github.com/rmdhnreza/eza.web.id/LICENSE/raw)
+Repository ini menggunakan lisensi sesuai ketentuan pemilik tema [Stack](https://github.com/CaiJimmy/hugo-theme-stack) yaitu [GNU General Public License v3.0](https://github.com/rmdhnreza/eza.web.id/blob/eza.web.id/LICENSE)
