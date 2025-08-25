@@ -130,17 +130,21 @@
   padding: 0;
 
   a {
-    color: var(--accent-color-text);
-    background-color: var(--accent-color);
+    color: var(--card-text-color-main);
+    background-color: var(--tags-button-color);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     padding: 8px 16px;
     border-radius: var(--tag-border-radius);
     display: inline-block;
     font-size: 1.4rem;
-    transition: background-color 0.5s ease;
+    transition:
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
 
     &:hover {
-      color: var(--accent-color-text);
-      background-color: var(--accent-color-darker);
+      color: var(--card-text-color-main);
+      background-color: var(--tags-button-color-hover);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
     }
   }
 }

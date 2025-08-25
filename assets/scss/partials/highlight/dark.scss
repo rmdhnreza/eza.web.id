@@ -3,12 +3,12 @@
 *   https://xyproto.github.io/splash/docs/monokai.html
 */
 
-$color: #f8f8f2;
+$color: #c6d0f5;
 $background-color: #303446; // Mantle (main background)
-$error-color: #ca9ee6; // Red (used for errors)
-$keyword-color: #89b4fa; // Blue (used for keywords)
+$error-color: #e78284; // Red (used for errors)
+$keyword-color: #ca9ee6; // Blue (used for keywords)
 $text-color: $color; // Text color (Text)
-$name-color: #a6e3a1; // Green (used for names)
-$literal-color: #f9e2af; // Yellow (used for literals)
+$name-color: #a6d189; // Green (used for names)
+$literal-color: #c6d0f5; // Yellow (used for literals)
 
 @import "common.scss";

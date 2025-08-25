@@ -60,8 +60,8 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 */
 :root {
   --sys-font-family: "Fira Sans", sans-serif;
-  --zh-font-family: "PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback",
-    "Microsoft YaHei";
+  --zh-font-family:
+    "PingFang SC", "Hiragino Sans GB", "Droid Sans Fallback", "Microsoft YaHei";
 
   --base-font-family: var(--sys-font-family), var(--zh-font-family), sans-serif;
   --code-font-family: "Iosevka", monospace;
@@ -147,6 +147,9 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 
   --kbd-border-color: #dadada;
 
+  --tags-button-color: #ffffff;
+  --tags-button-color-hover: #f5f5f5;
+
   &[data-scheme="dark"] {
     --highlight-color: #303446;
 
@@ -157,7 +160,14 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
     --tr-even-background-color: #545454;
 
     --blockquote-background-color: rgb(75 75 75);
+
+    --tags-button-color: #616161;
+    --tags-button-color-hover: #757575;
   }
+}
+
+:root {
+  --thumbnail-size: 80px;
 }
 
 /*
@@ -165,15 +175,18 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 *   Thanks to https://www.figma.com/community/plugin/744987207861965946/Shadow-picker
 */
 :root {
-  --shadow-l1: 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06),
+  --shadow-l1:
+    0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06),
     0px 0px 1px rgba(0, 0, 0, 0.04);
-  --shadow-l2: 0px 10px 20px rgba(0, 0, 0, 0.04),
-    0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
-  --shadow-l3: 0px 10px 20px rgba(0, 0, 0, 0.04),
-    0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
-  --shadow-l4: 0px 24px 32px rgba(0, 0, 0, 0.04),
-    0px 16px 24px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.04),
+  --shadow-l2:
+    0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04),
     0px 0px 1px rgba(0, 0, 0, 0.04);
+  --shadow-l3:
+    0px 10px 20px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04),
+    0px 0px 1px rgba(0, 0, 0, 0.04);
+  --shadow-l4:
+    0px 24px 32px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
+    0px 4px 8px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
 }
 
 [data-scheme="light"] {

@@ -15,13 +15,11 @@
     overflow: hidden;
 
     .article-header {
-      .article-image {
-        img {
-          height: auto;
-          width: 100%;
-          max-height: 50vh;
-          object-fit: cover;
-        }
+      .article-image img {
+        width: 100%;
+        max-height: 50vh;
+        height: auto;
+        object-fit: cover;
       }
 
       .article-details {
@@ -45,12 +43,7 @@
     }
 
     .article-footer {
-      margin: var(--card-padding);
-      margin-top: 0;
-
-      section:not(:first-child) {
-        margin-top: var(--card-padding);
-      }
+      margin: 0 var(--card-padding) var(--card-padding);
 
       section {
         color: var(--card-text-color-tertiary);
@@ -59,6 +52,10 @@
         align-items: center;
         font-size: 1.4rem;
         gap: 15px;
+
+        &:not(:first-child) {
+          margin-top: var(--card-padding);
+        }
 
         svg {
           width: 20px;
@@ -75,16 +72,17 @@
       .article-lastmod {
         a {
           color: var(--body-text-color);
-        }
 
-        a.link {
-          box-shadow: unset;
+          &.link {
+            box-shadow: unset;
+          }
         }
       }
     }
   }
 }
 
+/* --- Related content --- */
 .related-content {
   background: var(--card-background);
   overflow-x: auto;
@@ -92,42 +90,41 @@
   border-radius: var(--card-border-radius);
   padding: var(--card-border-radius);
 
-  & > .flex {
+  > .flex {
     float: left;
   }
 
   article {
-    margin-right: 15px;
     flex-shrink: 0;
     overflow: hidden;
     width: 250px;
     height: 150px;
+    margin-right: 15px;
 
     .article-title {
       font-size: 1.8rem;
       margin: 0;
     }
 
-    &.has-image {
-      .article-details {
-        padding: 20px;
-        background: linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.25) 0%,
-          rgba(0, 0, 0, 0.75) 100%
-        );
-      }
+    &.has-image .article-details {
+      padding: 20px;
+      background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.25) 0%,
+        rgba(0, 0, 0, 0.75) 100%
+      );
     }
   }
 }
 
+/* --- Article Content --- */
 .article-content {
   font-family: var(--article-font-family);
   font-size: var(--article-font-size);
-  padding: 0 var(--card-padding);
   line-height: var(--article-line-height);
+  padding: 0 var(--card-padding);
 
-  & > p {
+  > p {
     margin: 1.5em 0;
   }
 
@@ -137,7 +134,7 @@
   h4,
   h5,
   h6 {
-    margin-inline-start: calc((var(--card-padding)) * -1);
+    margin-inline-start: calc(var(--card-padding) * -1);
     padding-inline-start: calc(
       var(--card-padding) - var(--heading-border-size)
     );
@@ -145,31 +142,28 @@
     position: relative;
 
     a.header-anchor {
-      transition: opacity 0.3s ease;
-      opacity: 0;
       position: absolute;
       left: 0;
       width: var(--card-padding);
       text-align: center;
       color: var(--accent-color);
+      opacity: 0;
+      transition: opacity 0.3s ease;
 
       &:before {
         content: "#";
       }
     }
 
-    &:hover,
-    &:focus {
-      a.header-anchor {
-        opacity: 1;
-      }
+    &:hover a.header-anchor,
+    &:focus a.header-anchor {
+      opacity: 1;
     }
   }
 
   h3 {
     font-size: 2.4rem;
   }
-
   h4 {
     font-size: 2rem;
   }
@@ -184,12 +178,12 @@
   }
 
   blockquote {
-    position: relative;
     margin: 1.5em 0;
+    padding: 15px calc(var(--card-padding) - var(--blockquote-border-size));
     border-inline-start: var(--blockquote-border-size) solid
       var(--card-separator-color);
-    padding: 15px calc(var(--card-padding) - var(--blockquote-border-size));
     background-color: var(--blockquote-background-color);
+    position: relative;
 
     .cite {
       display: block;
@@ -205,18 +199,18 @@
   hr {
     width: 100px;
     margin: 40px auto;
-    background: var(--card-text-color-tertiary);
     height: 2px;
     border: 0;
+    background: var(--card-text-color-tertiary);
     opacity: 0.55;
   }
 
   code {
+    font-family: var(--code-font-family);
     color: var(--pre-text-color);
     background-color: var(--code-background-color);
     padding: 2px 4px;
     border-radius: var(--tag-border-radius);
-    font-family: var(--code-font-family);
   }
 
   a,
@@ -225,12 +219,10 @@
   }
 
   .gallery {
-    position: relative;
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    margin: 1.5em 0;
     gap: 10px;
+    margin: 1.5em 0;
 
     figure {
       margin: 0;
@@ -238,101 +230,97 @@
   }
 
   pre {
-    overflow-x: auto;
-    display: block;
+    padding: var(--card-padding);
     background-color: var(--pre-background-color);
     color: var(--pre-text-color);
     font-family: var(--code-font-family);
+    font-weight: 600;
     line-height: 1.428571429;
+    overflow-x: auto;
     word-break: break-all;
-    padding: var(--card-padding);
-    //  keep Codeblocks LTR
+
     [dir="rtl"] & {
       direction: ltr;
     }
+
     code {
-      color: unset;
-      border: none;
       background: none;
+      border: none;
       padding: 0;
+      color: inherit;
     }
   }
 
   .highlight {
     background-color: var(--highlight-color);
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    padding: 1rem;
     position: relative;
-    padding: 8px;
 
-    &:hover {
-      .copyCodeButton {
-        opacity: 1;
-      }
+    &:hover .copyCodeButton {
+      opacity: 1;
     }
 
-    & .chroma > table {
+    .chroma > table {
       margin: 0;
-      width: 20%;
-      & td {
+      td {
         border: 0;
-        padding: 4px 0px 4px 18px;
       }
     }
 
-    // keep Codeblocks LTR
     [dir="rtl"] & {
       direction: ltr;
     }
+
     pre {
-      margin: initial;
-      padding: 0;
       margin: 0;
+      padding: 0;
       width: auto;
     }
   }
 
   .copyCodeButton {
     position: absolute;
-    top: 6px;
-    right: calc(var(--card-padding));
-    background: var(--card-background);
-    border: none;
-    box-shadow: var(--shadow-l2);
-    border-radius: var(--tag-border-radius);
+    top: 4.5px;
+    right: var(--card-padding);
     padding: 8px 16px;
+    border: none;
+    border-radius: var(--tag-border-radius);
+    background: var(--card-background);
     color: var(--card-text-color-main);
-    cursor: pointer;
+    box-shadow: var(--shadow-l2);
     font-size: 14px;
+    cursor: pointer;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
 
   .table-wrapper {
+    display: block;
     padding: 0 var(--card-padding);
     overflow-x: auto;
-    display: block;
   }
 
   table {
     width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
     margin-bottom: 1.5em;
+    border-collapse: collapse;
     font-size: 0.96em;
-  }
 
-  th,
-  td {
-    text-align: left;
-    padding: 4px 8px 4px 10px;
-    border: 1px solid var(--table-border-color);
-  }
+    th,
+    td {
+      padding: 4px 8px 4px 10px;
+      border: 1px solid var(--table-border-color);
+      text-align: left;
+    }
 
-  td {
-    vertical-align: top;
-  }
-
-  tr:nth-child(even) {
-    background-color: var(--tr-even-background-color);
+    td {
+      vertical-align: top;
+    }
+    tr:nth-child(even) {
+      background-color: var(--tr-even-background-color);
+    }
   }
 
   .twitter-tweet {
@@ -341,49 +329,70 @@
 
   .video-wrapper {
     position: relative;
-    width: 100%;
-    height: 0;
     padding-bottom: 56.25%;
+    height: 0;
     overflow: hidden;
 
-    & > iframe,
-    & > video {
+    > iframe,
+    > video {
       position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      left: 0;
-      top: 0;
       border: 0;
     }
   }
 
-  /// Negative margins
+  /* Shared negative margins for wide blocks */
   blockquote,
   figure,
-  .highlight,
-  pre,
   .gallery,
   .video-wrapper,
   .table-wrapper,
   .s_video_simple {
-    margin-left: calc((var(--card-padding)) * -1);
-    margin-right: calc((var(--card-padding)) * -1);
+    margin-inline: calc(var(--card-padding) * -1);
     width: calc(100% + var(--card-padding) * 2);
   }
 
-  /// Make long KaTeX equations scrollable in the x-axis
+  /* KaTeX long equations */
   .katex-display > .katex {
     overflow-x: auto;
     overflow-y: hidden;
   }
 
   kbd {
-    border: 1px solid var(--kbd-border-color);
-    font-weight: bold;
-    font-size: 0.9em;
-    line-height: 1;
-    padding: 2px 4px;
-    border-radius: 4px;
     display: inline-block;
+    padding: 2px 4px;
+    border: 1px solid var(--kbd-border-color);
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-weight: bold;
+    line-height: 1;
   }
+
+  ul {
+    padding-inline-start: 15px;
+  }
+
+  li {
+    .highlight {
+      margin-inline: 0;
+      width: 100%;
+    }
+
+    h4 {
+      margin-block-start: 1em;
+      margin-block-end: 0;
+      font-size: 1.6rem;
+      border-inline-start: 0;
+      padding-inline-start: 0;
+      margin-inline-start: 0;
+      position: relative;
+    }
+  }
+}
+
+.time-home {
+  margin-top: 0;
 }

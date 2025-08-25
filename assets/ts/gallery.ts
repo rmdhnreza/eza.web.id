@@ -80,11 +80,11 @@ class StackGallery {
       const figure = document.createElement("figure");
       figure.style.setProperty(
         "flex-grow",
-        img.getAttribute("data-flex-grow") || "1",
+        img.getAttribute("data-flex-grow") || "1"
       );
       figure.style.setProperty(
         "flex-basis",
-        img.getAttribute("data-flex-basis") || "0",
+        img.getAttribute("data-flex-basis") || "0"
       );
       if (hasLink) {
         el = img.parentElement;
@@ -170,7 +170,7 @@ class StackGallery {
 
           return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
         },
-      },
+      }
     );
 
     ps.init();

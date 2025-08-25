@@ -1,7 +1,7 @@
 {{ define "tableOfContent" }}
   {{ if (.Scratch.Get "hasTOC") }}
     <div class="tableOfContent">
-      <h3 class="titleTableOfContent">{{ T "article.tableOfContents" }}</h3>
+      <h2 class="titleTableOfContent">{{ T "article.tableOfContents" }}</h2>
       <div class="tableOfContentList">
         {{ .TableOfContents }}
       </div>

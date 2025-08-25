@@ -7,7 +7,7 @@
       {{ with .Params.summary }}
         <h3 class="section-description" title="{{- . | truncate 75 -}}" aria-label="{{- . | truncate 75 -}}">{{- . | truncate 75 -}}</h3>
       {{ end }}
-      <footer class="article-time">
+      <footer class="article-time time-home">
         <time class="time" datetime="{{ .PublishDate }}" title="{{ .PublishDate }}">{{ partial "helper/icon" "clock" }} {{ .Date | time.Format ":date_full" }}</time>
         {{- if .Lastmod }}
           <time class="time" datetime="{{ .Lastmod }}" title="{{ .Lastmod }}">{{ partial "helper/icon" "clock-edit" }} {{ .Lastmod | time.Format "Monday, 02 January 2006" }} </time>

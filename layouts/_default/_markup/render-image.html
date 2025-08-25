@@ -20,12 +20,12 @@
       {{- $galleryImage = true -}}
 
       {{- if (default true .Page.Site.Params.imageProcessing.content.enabled) -}}
-        {{- $large := $image.Resize `1024x webp text MitchellNetravali q100` -}}
+        {{- $large := $image.Resize `845x webp text Lanczos q75` -}}
         {{- if $large -}}
-          {{- $medium := $image.Resize `720x webp text MitchellNetravali q100` -}}
-          {{- $small := $image.Resize `480x webp text MitchellNetravali q100` -}}
-          {{- $tiny := $image.Resize `360x webp text MitchellNetravali q100` -}}
-          {{- $Srcset = printf `%s 360w, %s 480w, %s 720w, %s 1024w` $tiny.RelPermalink $small.RelPermalink $medium.RelPermalink $large.RelPermalink -}}
+          {{- $medium := $image.Resize `720x webp text Lanczos q75` -}}
+          {{- $small := $image.Resize `480x webp text Lanczos q75` -}}
+          {{- $tiny := $image.Resize `360x webp text Lanczos q75` -}}
+          {{- $Srcset = printf `%s 360w, %s 480w, %s 720w, %s 845w` $tiny.RelPermalink $small.RelPermalink $medium.RelPermalink $large.RelPermalink -}}
         {{- else -}}
           {{- $Srcset = $Permalink -}}
         {{- end -}}

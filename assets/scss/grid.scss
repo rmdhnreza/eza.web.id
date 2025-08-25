@@ -21,19 +21,19 @@
         @include respond(md) {
             max-width: 1024px;
             --left-sidebar-max-width: 25%;
-            --right-sidebar-max-width: 30%;
+            --right-sidebar-max-width: 25%;
         }
 
         @include respond(lg) {
             max-width: 1280px;
             --left-sidebar-max-width: 20%;
-            --right-sidebar-max-width: 30%;
+            --right-sidebar-max-width: 25%;
         }
 
         @include respond(xl) {
-            max-width: 1536px;
+            max-width: 1420px;
             --left-sidebar-max-width: 15%;
-            --right-sidebar-max-width: 25%;
+            --right-sidebar-max-width: 20%;
         }
     }
 
@@ -94,7 +94,7 @@ main.main {
     padding: 0 15px;
     gap: var(--section-separation);
     padding-top: var(--main-top-padding);
-    
+
     @include respond(md) {
         padding: 0 20px;
     }

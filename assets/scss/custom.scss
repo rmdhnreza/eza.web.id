@@ -1,34 +1,4 @@
 /* Place your custom SCSS in HUGO_SITE_FOLDER/assets/scss/custom.scss */
-@use "sass:selector";
-
-@mixin tag($tag) {
-  $ampersand: & + "";
-  $selectors: simple-selectors(str-replace($ampersand, " ", ""));
-
-  $main-selector: nth($selectors, -1);
-  $previous-selectors: str-replace($ampersand, $main-selector, "");
-
-  @at-root {
-    #{$previous-selectors}#{$tag}#{$main-selector} {
-      @content;
-    }
-  }
-}
-
-@function str-replace($string, $search, $replace: "") {
-  $index: str-index($string, $search);
-
-  @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace +
-      str-replace(
-        str-slice($string, $index + str-length($search)),
-        $search,
-        $replace
-      );
-  }
-
-  @return $string;
-}
 
 ol.breadcrumb {
   list-style: none;
@@ -40,63 +10,6 @@ ol.breadcrumb {
   border-radius: var(--card-border-radius);
 }
 
-.tableOfContent {
-  background-color: var(--blockquote-background-color);
-  color: var(--heading-text-color);
-  margin: var(--card-padding) 0;
-  padding: 15px 0 0 var(--card-padding);
-
-  & .tableOfContentList {
-    background-color: var(--article-heading-background);
-    color: var(--card-text-color-main);
-    display: flex;
-    flex-direction: column;
-    font-weight: 500;
-
-    @include tag(#TableOfContents) li {
-      margin: 12px 0 0;
-
-      & > ol > li {
-        margin: 12px 0 0 15px;
-      }
-    }
-  }
-
-  & .titleTableOfContent {
-    @include tag(h3) {
-      font-size: 2.4rem;
-      margin: 0;
-      color: var(--pre-text-color);
-    }
-  }
-}
-
-.pswp__caption__center {
-  text-align: center !important;
-}
-
-nav#TableOfContents ol {
-  counter-reset: item;
-  list-style-type: none;
-
-  & > li > a:first-of-type::before {
-    color: var(--card-text-color-main);
-    content: counters(item, ".") ". ";
-    counter-increment: item;
-  }
-
-  & > li > ol {
-    padding: 0;
-    counter-reset: sub-item;
-  }
-
-  & > li > ol > li > a:first-of-type::before {
-    color: var(--card-text-color-main);
-    content: "";
-    counter-increment: sub-item;
-  }
-}
-
 summary {
   cursor: pointer;
   outline: auto;
@@ -106,4 +19,80 @@ summary {
 [type="search"]::placeholder {
   color: var(--pre-text-color);
   opacity: 0.8;
+}
+
+.admonition-header {
+  font-size: 1em !important;
+}
+
+.tableOfContent {
+  background-color: var(--blockquote-background-color);
+  color: var(--heading-text-color);
+  margin: var(--card-padding) 0;
+  padding: 15px 0 0 var(--card-padding);
+
+  .titleTableOfContent {
+    font-size: 2.4rem;
+    margin: 0;
+    color: var(--pre-text-color);
+  }
+
+  .tableOfContentList {
+    background-color: var(--article-heading-background);
+    color: var(--card-text-color-main);
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+
+    #TableOfContents li {
+      margin: 12px 0 0;
+
+      ol > li {
+        margin: 12px 0 0 30px;
+      }
+    }
+  }
+}
+
+nav#TableOfContents ol {
+  list-style: none;
+  counter-reset: item;
+
+  li {
+    counter-increment: item;
+
+    > a:first-of-type::before {
+      color: var(--card-text-color-main);
+      font-weight: 700;
+      content: counters(item, ".") ". ";
+    }
+
+    > ol {
+      padding: 0;
+      counter-reset: item;
+    }
+  }
+}
+
+.pswp__button--zoom {
+  display: none !important;
+}
+
+.pswp__caption__center {
+  text-align: center !important;
+}
+
+.pswp__img {
+  pointer-events: none;
+}
+
+.search-compact {
+  & article {
+    & .article-details {
+      padding: var(--small-card-padding);
+    }
+    & .article-image {
+      padding: unset;
+    }
+  }
 }

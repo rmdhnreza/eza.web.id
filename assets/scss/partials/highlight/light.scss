@@ -8,7 +8,7 @@ $background-color: #eff1f5; // Base (main background)
 $error-color: #04a5e5; // Red (error colors)
 $keyword-color: #1e66f5; // Blue (keywords)
 $text-color: $color; // Text (main text color)
-$name-color: #40a02b; // Green (for variable or name highlights)
-$literal-color: #7287fd; // Yellow (for literals or constants)
+$name-color: #04a5e5; // Green (for variable or name highlights)
+$literal-color: #d189d0; // Yellow (for literals or constants)
 
 @import "common.scss";
