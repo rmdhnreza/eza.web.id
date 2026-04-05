@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="site-logo"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 8l-4 4 4 4"/><path d="M17 8l4 4-4 4"/><path d="M14 4l-4 16"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="80" height="80" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+<style>.b{fill:#fff}.i{stroke:#000;stroke-width:2.5}@media(prefers-color-scheme:dark){.b{fill:#1a1a1a}.i{stroke:#fff}}</style>
+<rect class="b" width="100%" height="100%" rx="50%" ry="50%"/>
+<g class="i" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" transform="translate(2 3)">
+<line x1="10.5" x2="6.5" y1=".5" y2="14.5"/>
+<polyline points="7.328 2.672 7.328 8.328 1.672 8.328" transform="rotate(135 4.5 5.5)"/>
+<polyline points="15.328 6.672 15.328 12.328 9.672 12.328" transform="scale(1 -1) rotate(-45 -10.435 0)"/>
+</g>
+</svg>

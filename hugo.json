@@ -26,8 +26,16 @@
     ]
   },
   "frontmatter": {
-    "date": ["date", "lastmod"],
-    "lastmod": ["lastmod", ":git", "date", "publishDate"]
+    "date": [
+      "date",
+      "lastmod"
+    ],
+    "lastmod": [
+      "lastmod",
+      ":git",
+      "date",
+      "publishDate"
+    ]
   },
   "permalinks": {
     "post": "/:title"
@@ -43,7 +51,9 @@
   "params": {
     "description": "Blog seputar Linux, MacOS, dan Windows",
     "favicon": "/favicon.svg",
-    "mainSections": ["post"],
+    "mainSections": [
+      "post"
+    ],
     "featuredImageField": "image",
     "rssFullContent": true,
     "footer": {
@@ -195,10 +205,21 @@
           "enable": true,
           "delimiters": {
             "block": [
-              ["\\[", "\\]"],
-              ["$$", "$$"]
+              [
+                "\\[",
+                "\\]"
+              ],
+              [
+                "$$",
+                "$$"
+              ]
             ],
-            "inline": [["\\(", "\\)"]]
+            "inline": [
+              [
+                "\\(",
+                "\\)"
+              ]
+            ]
           }
         }
       },
@@ -232,7 +253,9 @@
   },
   "mediaTypes": {
     "text/css": {
-      "suffixes": ["css"]
+      "suffixes": [
+        "css"
+      ]
     }
   },
   "minify": {
@@ -246,19 +269,21 @@
     "tdewolff": {
       "css": {
         "inline": false,
-        "keepCSS2": true,
+        "version": false,
         "precision": 0
       },
       "html": {
         "keepComments": false,
-        "keepConditionalComments": false,
         "keepDefaultAttrVals": true,
         "keepDocumentTags": true,
         "keepEndTags": true,
         "keepQuotes": false,
-        "keepSpecialComments": false,
+        "keepspecialcomments": false,
         "keepWhitespace": false,
-        "templateDelims": ["", ""]
+        "templateDelims": [
+          "",
+          ""
+        ]
       },
       "js": {
         "keepVarNames": false,
@@ -282,14 +307,6 @@
   "caches": {
     "assets": {
       "dir": ":resourceDir/_gen",
-      "maxAge": -1
-    },
-    "getcsv": {
-      "dir": ":cacheDir/:project",
-      "maxAge": -1
-    },
-    "getjson": {
-      "dir": ":cacheDir/:project",
       "maxAge": -1
     },
     "getresource": {

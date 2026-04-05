@@ -71,6 +71,7 @@
 /firebase-debug.*.log
 /firebase-debug.log
 /firebase.json
+/functions/
 /functions/.env
 /functions/node_modules/
 /functions/package-lock.json
